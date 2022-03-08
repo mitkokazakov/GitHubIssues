@@ -1,0 +1,14 @@
+.appHeader{
+    height: 100px;
+    background-color: gainsboro;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.appHeader > p{
+    color: black;
+    font-weight: bold;
+    font-size: 40px;
+}
