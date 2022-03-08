@@ -4,24 +4,27 @@ import Image from '../../images/user.png';
 
 const Issue = ({issue}) => {
 
+    let currentImage = Image;
+
     if(issue.assignee != null){
-        Image = issue.assignee.avatar_url;
+
+        currentImage = issue.assignee.avatar_url;
     }
 
     return (
 
 
-        <div class="card col-md-3 mb-5">
+        <div className="card col-md-3 mb-5">
 
-            <div class="card-body">
-                <h5 class="card-title">Issue title</h5>
-                <p class="card-text">{issue.title}</p>
-                <h5 class="card-title">Assignee : {issue.assignee == null ? "No assignee" : issue.assignee.login}</h5>
-                <p class="card-text"><small class="text-muted">Assignee Avatar</small></p>
+            <div className="card-body">
+                <h5 className="card-title">Issue title</h5>
+                <p className="card-text">{issue.title}</p>
+                <h5 className="card-title">Assignee : {issue.assignee == null ? "No assignee" : issue.assignee.login}</h5>
+                <p className="card-text"><small className="text-muted">Assignee Avatar</small></p>
             </div>
 
             <div className={style.assigneeAvatar}>
-                <img src={Image} class="card-img-top" alt="..." />
+                <img src={currentImage} className="card-img-top" alt="..." />
             </div>
         </div>
 

@@ -11,8 +11,8 @@ const Issues = ({allIssues}) => {
 
         <div className="row d-flex justify-content-around">
                 {
-                  allIssues.map(issue => {
-                    return <Issue issue={issue}/>
+                  allIssues.length == 0 ? "No issues" : allIssues.map(issue => {
+                    return <Issue key={issue.id} issue={issue}/>
                   })
                 }
         </div>
