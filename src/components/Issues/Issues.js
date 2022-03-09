@@ -2,7 +2,9 @@ import style from './Issues.module.css';
 
 import Issue from './Issue';
 
-const Issues = ({allIssues}) => {
+const Issues = () => {
+
+  let allIssues = JSON.parse(localStorage.issues);
 
   return (
 
