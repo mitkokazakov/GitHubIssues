@@ -9,15 +9,17 @@ import * as services from './services/services';
 
 import { useState, useEffect } from 'react';
 
+import swal from 'sweetalert';
+
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
 
   const [issues, setIssues] = useState([]);
-
+  
   const [input, setInput] = useState({
-    username: "",
-    repo: ""
+    username: localStorage.username,
+    repo: localStorage.repo
   });
 
   const getInput = (username, repo) => {
@@ -37,21 +39,34 @@ function App() {
       let result = await services.getAllIssues(input.username, input.repo);
 
       if (result.status != 200) {
-        return alert("Invalid username or repository name. Try again!");
+        return swal({
+          icon: "error",
+          title: "Wrong username or repository name !!",
+          text: "Please try again with valid credentials."
+
+      });
       }
 
       let data = await result.json();
 
       setIssues(data);
+
+      window.localStorage.setItem("issues", JSON.stringify(data));
+
+      window.localStorage.setItem("username", input.username);
+
+      window.localStorage.setItem("repo", input.repo);
+
+      
     }
+
+    
 
   }, [input]);
 
-  localStorage.setItem("issues", JSON.stringify(issues));
+  console.log(input);
 
-  localStorage.setItem("username", input.username);
-
-  localStorage.setItem("repo", input.repo);
+  
 
   return (
     <div className="App">

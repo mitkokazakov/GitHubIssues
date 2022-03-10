@@ -36,7 +36,7 @@ const Comments = () => {
         <div className={style.commentsList}>
             {
                 comments.length == 0 ? "No comments for this issue" : comments.map(comment => {
-                    return <h4 key={comment.id}>{comment.body}</h4>
+                    return <h4 className='mb-5' key={comment.id}>{comment.body}</h4>
                 })
             }
             
