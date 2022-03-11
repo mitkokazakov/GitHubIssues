@@ -1,3 +1,7 @@
+# Short Description
+
+This simple app is built with ReactJs. The Form component displays the form where you can enter the username and the repository name. The default values of the both inputs are taken from the localStorage to save the state on refresh. When the Send button is clicked the Issues component is shown above the Form component. If there are no issues for the certain username and repo name it displays “No issues”. If there is at least one issue it is displayed like a card. When the issue name is clicked the Comments components is loaded with all comment for that issue.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
